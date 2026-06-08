@@ -91,6 +91,33 @@ class SheetsService {
       return false;
     }
   }
+  static Future<bool> addChanda(Map<String, String> data) async {
+    try {
+      final params = {
+        'action': 'addChanda',
+        'member_id': data['member_id'] ?? '',
+        'month': data['month'] ?? '',
+        'year': data['year'] ?? '',
+        'amount': data['amount'] ?? '',
+        'paid_date': data['paid_date'] ?? '',
+        'status': data['status'] ?? 'paid',
+      };
+
+      final uri = Uri.parse(AppConstants.scriptUrl)
+          .replace(queryParameters: params);
+      final res = await http.get(uri)
+          .timeout(const Duration(seconds: 15));
+
+      if (res.statusCode == 200) {
+        final result = jsonDecode(res.body);
+        return result['success'] == true;
+      }
+      return false;
+    } catch (e) {
+      print('addChanda error: $e');
+      return false;
+    }
+  }
 
   static Future<List<Map<String, dynamic>>> getMembers() =>
       _fetchSheet('users');

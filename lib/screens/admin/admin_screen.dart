@@ -3,6 +3,7 @@ import 'admin_savings_screen.dart';
 import 'admin_due_screen.dart';
 import 'admin_meeting_update_screen.dart';
 import 'admin_finance_screen.dart';
+import 'admin_chanda_update_screen.dart';
 
 class AdminScreen extends StatelessWidget {
   const AdminScreen({super.key});
@@ -57,6 +58,26 @@ class AdminScreen extends StatelessWidget {
                 mainAxisSpacing: 14,
                 children: [
                   _AdminCard(
+                    icon: Icons.payments,
+                    label: 'চাঁদা\nআপডেট',
+                    color: const Color(0xFF4CAF50),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) =>
+                            const AdminChandaUpdateScreen())),
+                  ),
+                  _AdminCard(
+                    icon: Icons.edit_note,
+                    label: 'মিটিং নোটিশ\nআপডেট',
+                    color: const Color(0xFF8E24AA),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) =>
+                            const AdminMeetingUpdateScreen())),
+                  ),
+                  _AdminCard(
                     icon: Icons.savings,
                     label: 'সকল সদস্যের\nসঞ্চয়',
                     color: const Color(0xFF00897B),
@@ -76,16 +97,7 @@ class AdminScreen extends StatelessWidget {
                             builder: (_) =>
                             const AdminDueScreen())),
                   ),
-                  _AdminCard(
-                    icon: Icons.edit_note,
-                    label: 'মিটিং নোটিশ\nআপডেট',
-                    color: const Color(0xFF8E24AA),
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) =>
-                            const AdminMeetingUpdateScreen())),
-                  ),
+
                   _AdminCard(
                     icon: Icons.bar_chart,
                     label: 'মাসিক আয়-ব্যয়\nরিপোর্ট',

@@ -277,10 +277,10 @@ class _MobileCard extends StatelessWidget {
   Color _color(String name) {
     if (name.contains('বিকাশ') || name.contains('bKash')) {
       return const Color(0xFFD81B60);
-    } else if (name.contains('রকেট') || name.contains('Rocket')) {
-      return const Color(0xFF6A1B9A);
     } else if (name.contains('নগদ') || name.contains('Nagad')) {
       return const Color(0xFFE65100);
+    } else if (name.contains('রকেট') || name.contains('Rocket')) {
+      return const Color(0xFFE02BC2);
     } else if (name.contains('শিওর') || name.contains('SureCash')) {
       return const Color(0xFF1565C0);
     } else if (name.contains('উপায়') || name.contains('Upay')) {
@@ -291,8 +291,8 @@ class _MobileCard extends StatelessWidget {
 
   IconData _icon(String name) {
     if (name.contains('বিকাশ')) return Icons.payments;
-    if (name.contains('রকেট')) return Icons.rocket_launch;
     if (name.contains('নগদ')) return Icons.account_balance_wallet;
+    if (name.contains('রকেট')) return Icons.rocket_launch;
     return Icons.phone_android;
   }
 
